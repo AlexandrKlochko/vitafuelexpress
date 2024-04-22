@@ -1965,53 +1965,21 @@ div.wpforms-container-full input[type=submit]:focus:after, div.wpforms-container
   display: none;
 }
 
-#wpforms-6077 .wpforms-field-label {
-  margin: 0;
-}
-
-#wpforms-6077 .wpforms-submit {
-  border-radius: 33px !important;
-  background-color: var(--color-cherry) !important;
-  width: 90%;
-  padding: 16px 70px !important;
-  color: var(--color-white, #FFF) !important;
-  font-family: var(--font-korto) !important;
-  font-size: 16px !important;
-  font-style: normal !important;
-  font-weight: 700 !important;
-  line-height: normal !important;
-  text-transform: uppercase !important;
-  border: initial;
-  margin: 0;
-  margin-bottom: 20px;
-  height: auto;
+.dgwt-wcas-suggestions-wrapp .dgwt-wcas-suggestion-product {
+  margin: 0 18px 8px;
+  border: 1px solid #DBDBDB;
+  border-radius: 18px;
+  padding: 12px;
+  max-width: 100%;
   width: auto;
 }
-
-.checkout_coupon input,
-form.woocommerce-checkout input,
-form.woocommerce-checkout textarea,
-#wpforms-6077 input,
-#wpforms-6077 textarea {
-  color: #000;
-  font-family: var(--font-korto);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  border-radius: var(--Box-Spacing, 24px);
-  padding: 10px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: var(--color-white, #FFF);
-  line-height: 20px;
-  height: auto;
+.dgwt-wcas-suggestions-wrapp .dgwt-wcas-suggestion-product .dgwt-wcas-content-wrapp {
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-.wpforms-submit {
-  outline: initial !important;
-}
-
-div.wpforms-container-full input[type=submit]:focus:after, div.wpforms-container-full button[type=submit]:focus:after, div.wpforms-container-full .wpforms-page-button:focus:after {
-  display: none;
+.dgwt-wcas-suggestions-wrapp .dgwt-wcas-suggestion-product .dgwt-wcas-content-wrapp .dgwt-wcas-meta .dgwt-wcas-sp {
+  line-height: 1em;
+  text-align: left;
 }
 
 .category-tab-title {
@@ -2404,7 +2372,7 @@ a.button.is-outline > i[class^=icon-] {
 
 .ux-menu-link__link:hover,
 .post-title:hover a,
-.menu-item:hover a {
+.menu-item:hover > a {
   color: #FF5C00 !important;
 }
 

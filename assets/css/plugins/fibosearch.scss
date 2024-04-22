@@ -1,0 +1,22 @@
+.dgwt-wcas-suggestions-wrapp {
+  .dgwt-wcas-suggestion-product {
+    margin: 0 18px 8px;
+    border: 1px solid #DBDBDB;
+    border-radius: 18px;
+    padding: 12px;
+    max-width: 100%;
+    width: auto;
+
+    .dgwt-wcas-content-wrapp {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .dgwt-wcas-meta {
+        .dgwt-wcas-sp {
+          line-height: 1em;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
