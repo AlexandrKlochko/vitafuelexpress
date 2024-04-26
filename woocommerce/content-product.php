@@ -110,6 +110,18 @@ if ($out_of_stock) $classes[] = 'out-of-stock';
                     }
                     echo '    </div>';
                 };
+                if (isset($wc_product_attribute['pa_supplement-facts'])) {
+                    $attr_id = $wc_product_attribute['pa_supplement-facts']->get_terms();
+                    echo '  <div class="pa_supplement-facts">';
+                    foreach ($wc_product_attribute['pa_supplement-facts']->get_terms() as $key=> $ingredient) {
+                        $icon = get_field('icon', $ingredient);
+                        if ($icon) {
+                            echo wp_get_attachment_image($icon['id'], [30, 30]);
+                        }
+                        if($key>3) break;
+                    }
+                    echo '    </div>';
+                };
 
                 ?>
 

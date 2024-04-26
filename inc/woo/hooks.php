@@ -36,7 +36,7 @@ function child_flatsome_product_supplements_tab() {
     if($supplements):?>
         <div class="row">
             <?php foreach( $supplements as $supplement ): ?>
-            <div class="col large-3 pb-0 mb-0 text-center">
+            <div class="col small-4 medium-3 pb-0 mb-0 text-center">
                 <?php $icon = get_field('icon', 'pa_supplement-facts_'.$supplement->term_id);?>
                 <?php echo wp_get_attachment_image($icon['ID'])?>
                 <h6><?php echo $supplement->name?></h6>
@@ -49,11 +49,11 @@ function child_flatsome_product_directions_tab() {
     $directions = get_field('directionsdosage');
     foreach ($directions as $direction):?>
         <div class="row">
-            <div class="col large-3 pb-0 mb-0 text-center">
+            <div class="col small-4 large-3 pb-0 mb-0 text-center">
                 <?php echo wp_get_attachment_image($direction['icon']['ID'])?>
                 <h6><?php echo $direction['title']?></h6>
             </div>
-            <div class="col large-9 pb-0 mb-0"><?php echo $direction['content']?></div>
+            <div class="col small-8 large-9 pb-0 mb-0"><?php echo $direction['content']?></div>
         </div>
 
     <?php endforeach;

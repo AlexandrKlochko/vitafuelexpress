@@ -141,6 +141,21 @@
 
 }
 
+.product-default {
+  .pa_supplement-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    img {
+      max-width: 24px;
+      width: 100%;
+    }
+  }
+}
+
 .woocommerce-result-count.hide-for-medium {
   font-family: var(--font-family);
   font-weight: 300;

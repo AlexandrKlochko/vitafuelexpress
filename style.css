@@ -267,6 +267,7 @@ svg {
 }
 
 .product-default .pa_directions-dosage img ,
+.product-default .pa_supplement-facts img ,
 .product-default .pa_ingredients img {
     max-width: 24px;
     width: 100%;
@@ -275,10 +276,12 @@ svg {
 .product-default .pa_directions-dosage {
     right: 0;
 }
-.product-default .pa_ingredients {
+.product-default .pa_ingredients,
+.product-default .pa_supplement-facts {
     left: 0px;
 }
 .product-default .pa_directions-dosage ,
+.product-default .pa_supplement-facts ,
 .product-default .pa_ingredients {
 
     display: flex;
