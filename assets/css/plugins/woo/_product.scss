@@ -16,29 +16,83 @@
 .single-product,
 .single-product #main,
 .single-product #wrapper{
-  background: #F2F2F2 !important;
+  background: #F8F8F8 !important;
   padding-top:0;
 }
 
 .single-product .product-main,
-.single-product  .woocommerce-tabs{
-  max-width:1023px;
+.single-product .woocommerce-tabs,
+.single-product .product-footer .product-page-sections{
+  max-width:1139px;
   margin:0 auto;
 }
 
-.single-product .page-title{
-  padding-top:100px;
-  padding-bottom:20px
+.single-product {
+  .page-title {
+    padding-top: 100px;
+    padding-bottom: 20px
+  }
+  .product-title {
+    color: #292929;
+    font-family: var(--font-outfit);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 42px;
+  }
+  .product-short-description{
+    font-family: var(--font-outfit);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2em;
+    text-align: left;
+    color: #343434;
+    padding-bottom: 44px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid #DBDBDB;
+  }
+  form{
+    &.cart{
+      display: flex;
+      align-items: center;
+    }
+  }
+  .product-section-boxed{
+    .panel {
+      padding: 24px;
+      background: #DBDBDB3B;
+      border: 1px solid #DBDBDB;
+      margin-bottom: 17px;
+      border-radius: 12px;
+      h5 {
+        font-family: var(--font-outfit);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2em;
+        margin-bottom: 18px;
+      }
+
+      h6 {
+        font-family: var(--font-outfit);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2em;
+        text-align: center;
+
+      }
+
+      p {
+        font-family: var(--font-outfit);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2em;
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
-.single-product .product-title {
-  color: #292929;
-  font-family: Avenir;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-}
 
 .woocommerce-Tabs-panel p,
 .woocommerce-Tabs-panel h3{
@@ -102,10 +156,10 @@
 }
 
 .product-container .single_add_to_cart_button{
-  border-radius: 33px !important;
+  border-radius: 8px !important;
   background-color: var(--color-cherry) !important;
   width: 90%;
-  padding: 16px 20px !important;
+  padding: 13px 20px !important;
   color: var(--color-white, #FFF) !important;
   font-family: var(--font-korto) !important;
   font-size: 16px !important;

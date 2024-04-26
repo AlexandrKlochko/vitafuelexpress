@@ -1,5 +1,63 @@
 <?php
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 25);
+add_filter('woocommerce_product_tabs','child_flatsome_custom_product_tabs');
 
+// Custom Product Tabs
+function child_flatsome_custom_product_tabs( $tabs ) {
+    global $wc_cpdf;
+    unset($tabs['additional_information']);
+
+    $tabs['product_ingredients_tab'] = array(
+        'title'   => __('Other ingredients','flatsome-child'),
+        'priority'  => 40,
+        'callback'  => 'child_flatsome_product_ingredients_tab'
+    );
+    $tabs['product_supplements_tab'] = array(
+        'title'   => __('Supplement Facts','flatsome-child'),
+        'priority'  => 50,
+        'callback'  => 'child_flatsome_product_supplements_tab'
+    );
+    $tabs['product_directions_tab'] = array(
+        'title'   => __('Directions / Dosage','flatsome-child'),
+        'priority'  => 60,
+        'callback'  => 'child_flatsome_product_directions_tab'
+    );
+    return $tabs;
+}
+
+add_filter( 'woocommerce_product_tabs', 'flatsome_custom_product_tabs' );
+function child_flatsome_product_ingredients_tab() {
+    echo get_field('other_ingeredients');
+}
+function child_flatsome_product_supplements_tab() {
+    global $product;
+    $supplements = wc_get_product_terms( $product->id, 'pa_supplement-facts');
+    if($supplements):?>
+        <div class="row">
+            <?php foreach( $supplements as $supplement ): ?>
+            <div class="col large-3 pb-0 mb-0 text-center">
+                <?php $icon = get_field('icon', 'pa_supplement-facts_'.$supplement->term_id);?>
+                <?php echo wp_get_attachment_image($icon['ID'])?>
+                <h6><?php echo $supplement->name?></h6>
+            </div>
+        <?php endforeach; ?>
+        </div>
+    <?php endif;
+}
+function child_flatsome_product_directions_tab() {
+    $directions = get_field('directionsdosage');
+    foreach ($directions as $direction):?>
+        <div class="row">
+            <div class="col large-3 pb-0 mb-0 text-center">
+                <?php echo wp_get_attachment_image($direction['icon']['ID'])?>
+                <h6><?php echo $direction['title']?></h6>
+            </div>
+            <div class="col large-9 pb-0 mb-0"><?php echo $direction['content']?></div>
+        </div>
+
+    <?php endforeach;
+}
 function get_icon_url($country)
 {
     return 'https://exactly.com';
@@ -264,3 +322,36 @@ function custom_get_catalog_ordering_args($args)
 }
 
 remove_action( 'flatsome_category_title', 'flatsome_add_category_filter_button', 999 );
+
+
+add_action( 'wp_ajax_woo_loadmore', 'woo_loadmore_ajax_handler' ); // wp_ajax_{action}
+add_action( 'wp_ajax_nopriv_woo_loadmore', 'woo_loadmore_ajax_handler' ); // wp_ajax_nopriv_{action}
+
+function woo_loadmore_ajax_handler(){
+
+    // prepare our arguments for the query
+    $args = json_decode( stripslashes( $_POST[ 'query' ] ), true );
+    $args[ 'paged' ] = $_POST[ 'page' ] + 1; // we need next page to be loaded
+    $args[ 'post_status' ] = 'publish';
+
+    // it is always better to use WP_Query but not here
+    query_posts( $args );
+
+    if( have_posts() ) :
+
+        // run the loop
+        while( have_posts() ): the_post();
+
+            // look into your theme code how the posts are inserted, but you can use your own HTML of course
+            // do you remember? - my example is adapted for Twenty Seventeen theme
+            wc_get_template_part( 'content', 'product' );
+
+            // for the test purposes comment the line above and uncomment the below one
+            // the_title();
+
+
+        endwhile;
+
+    endif;
+    die; // here we exit the script and even no wp_reset_query() required!
+}

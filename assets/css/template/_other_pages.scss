@@ -603,9 +603,9 @@ li.html.custom.html_topbar_left div.selectron23,
 
 
 .post-type-archive-product .shop-page-title, .post-type-archive-product #main,
-.tax-product_cat .shop-page-title,
+/*.tax-product_cat .shop-page-title,*/
 .tax-product_cat #main,
-.archive .shop-page-title,
+/*.archive .shop-page-title,*/
 .archive #main{
   background: #F8F8F8;
 }
@@ -632,6 +632,9 @@ li.html.custom.html_topbar_left div.selectron23,
 
 .tabs li.active a{
   font-weight: 600!important;
+}
+ul.wc_payment_methods{
+  list-style: none;
 }
 
 
